@@ -1,0 +1,10 @@
+{
+  "package": "g108.zip",
+  "based_on": "g107.zip",
+  "added_for_submission_video_reproduction": [
+    "submission_video/README.md",
+    "submission_video/p105_compose.py",
+    "submission_video/p98r2_background.png",
+    "submission_video/p105_layout_bgfix.png"
+  ]
+}

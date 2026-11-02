@@ -1,0 +1,120 @@
+--- P104 presentation-only recorder
++++ P105 camera-only appended recorder
+@@ -155,3 +155,117 @@
+         hud.text((19,1016),'2026/10/22 工程75',font=self.font[19],fill='#c4d7ea')
+         self.writer.append_data(np.asarray(final));self.count+=1
+     def close(self):self.writer.close()
++
++
++# == P105 CAMERA-ONLY OBSERVER (APPENDED; ORIGINAL CLASS UNCHANGED) ==
++# Read-only physics access; no calls to stepSimulation, robot control, or AI.
++_Stage105OriginalRecorder = Stage62Recorder
++class Stage105CameraOnlyRecorder(_Stage105OriginalRecorder):
++    def __init__(self,p,out,fps=20,w=1920,h=1080):
++        super().__init__(p,out,fps=fps,w=w,h=h)
++        import json
++        self._p105_path=Path(out).parent/'p105_views'
++        self._p105_path.mkdir(exist_ok=False)
++        self._p105_writers={
++            'grip':imageio.get_writer(str(self._p105_path/'p105_grip_live.mp4'),fps=fps,codec='libx264',quality=7,macro_block_size=1),
++            'follow':imageio.get_writer(str(self._p105_path/'p105_slider_follow_live.mp4'),fps=fps,codec='libx264',quality=7,macro_block_size=1)
++        }
++        self._p105_robot=None
++        self._p105_palm_joint=None
++        self._p105_xpoints=[]
++        self._p105_errors=[]
++        self._p105_no_track=0
++        self._p105_frame_count={'grip':0,'follow':0}
++
++    def _p105_find_palm(self):
++        if self._p105_robot is not None:return
++        p=self.p
++        for i in range(p.getNumBodies()):
++            b=p.getBodyUniqueId(i)
++            for j in range(p.getNumJoints(b)):
++                try:
++                    joint_name=p.getJointInfo(b,j)[1].decode('utf-8','replace')
++                    if joint_name=='palm_camera_fixed':
++                        self._p105_robot=b;self._p105_palm_joint=j;return
++                except Exception:continue
++
++    def _p105_render(self,eye,target,fov):
++        import numpy as np
++        p=self.p;w,h=960,540
++        view=p.computeViewMatrix(cameraEyePosition=eye,cameraTargetPosition=target,
++                                 cameraUpVector=[0.,0.,1.])
++        proj=p.computeProjectionMatrixFOV(fov=fov,aspect=w/h,nearVal=.015,farVal=5.)
++        _,_,rgba,_,_=p.getCameraImage(w,h,viewMatrix=view,projectionMatrix=proj,
++                                     renderer=p.ER_TINY_RENDERER)
++        return np.asarray(rgba,dtype=np.uint8).reshape(h,w,4)[:,:,:3].copy()
++
++    def frame(self,phase,force=False):
++        prior=self.count
++        super().frame(phase,force)
++        if self.count==prior:return
++        import numpy as np
++        from PIL import Image,ImageDraw
++        self._p105_find_palm()
++        tracking=self._p105_robot is not None
++        if tracking:
++            try:
++                xyz=self.p.getLinkState(self._p105_robot,self._p105_palm_joint,
++                                       computeForwardKinematics=True)[0]
++                x,y,z=[float(v) for v in xyz]
++            except Exception as e:
++                self._p105_errors.append({'frame':self.count,'error':repr(e)})
++                tracking=False
++        if not tracking:
++            self._p105_no_track+=1
++            x,y,z=0.,0.,1.18
++        self._p105_xpoints.append({'frame':self.count,'x':x,'y':y,'z':z,'tracking':tracking})
++        # Real world-space camera moves horizontally as the palm link travels.
++        # It does not crop or pan a previously recorded image.
++        eye_follow=[x+.38,-1.34,1.80]
++        aim_follow=[x,0.,.91]
++        # Near-grip observer travels with the physical palm, including vertical motion.
++        eye_grip=[x+.34,y-.52,z+.16]
++        aim_grip=[x,y,z-.18]
++        for name,eye,aim,fov in (
++            ('follow',eye_follow,aim_follow,48.),
++            ('grip',eye_grip,aim_grip,50.),
++        ):
++            try:
++                arr=self._p105_render(eye,aim,fov)
++                im=Image.fromarray(arr)
++                d=ImageDraw.Draw(im)
++                # Small photography tag, no occlusion of main 3D action.
++                d.rectangle((0,0,960,29),fill='#10283b')
++                label=('P105 LIVE 3D FOLLOW CAMERA' if name=='follow' else 'P105 LIVE 3D GRIP CAMERA')
++                d.text((12,7),label,fill='#ffffff')
++                d.text((625,7),f'P104 physics | {self.count/self.fps:.2f}s',fill='#cde4ef')
++                self._p105_writers[name].append_data(np.asarray(im))
++                self._p105_frame_count[name]+=1
++            except Exception as e:
++                self._p105_errors.append({'frame':self.count,'camera':name,'error':repr(e)})
++                # Diagnostic only; never change AI inference or physics control.
++
++    def close(self):
++        import json
++        try:
++            super().close()
++        finally:
++            for w in self._p105_writers.values():w.close()
++            xs=[p['x'] for p in self._p105_xpoints if p['tracking']]
++            report={
++                'camera_only':True,'parent_p104':True,
++                'real_pybullet_getCameraImage':True,
++                'slider_link_tracked':'palm_camera_fixed',
++                'follow_camera_position_uses_live_palm_x':True,
++                'total_original_frames':self.count,
++                'camera_frame_counts':self._p105_frame_count,
++                'palm_x_min_max_m':[min(xs),max(xs)] if xs else None,
++                'palm_x_motion_range_m':max(xs)-min(xs) if xs else None,
++                'no_tracking_frames':self._p105_no_track,
++                'errors':self._p105_errors,
++                'sampled_palm_xyz':self._p105_xpoints[::max(1,len(self._p105_xpoints)//25)]
++            }
++            (self._p105_path/'p105_camera_audit.json').write_text(
++                json.dumps(report,indent=2,ensure_ascii=False),'utf8')
++# The imported Stage70 runner uses this recorder by its original import name.
++Stage62Recorder=Stage105CameraOnlyRecorder

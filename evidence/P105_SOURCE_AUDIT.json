@@ -1,0 +1,14 @@
+{
+  "p92c": "c5927d8122b32a037544a3e3eb0da35f647a6231b3f0cb4eefba2f62cf819928",
+  "p104_script": "3d85d266c31b3e5f465f15c43b0e42048e9dcac6f563ca2ea5891e4f565a5e73",
+  "stage104_source": {
+    "stage84": "490bca16f9966bec42b817eb8cf8fc3a6bb1f0e06540f963ba9f38b56e2630e4",
+    "stage90": "dd5c008cf7b3c4d56552e4646b2b5a3bb011926b186b2a68f078f0a1def5bda0",
+    "runner": "e373205fa4b7f93295333e886be3b5ed4e6b25eaaa81a16b913ad54c42a8664c",
+    "10_C1_uv.png": "22ab1a6c93555164e74f8b9694bc7792f2c08ce465c0e51d026460503f60f2fc",
+    "05_C_uv.png": "b8356471e8a00259d8bdd4aaddc8d76b07f4bdc2d52a0914d9d664aa8d52d729"
+  },
+  "original_recording_module": "316e6dcb7e9fc866a4d5653b3b398af1a3fd231758dc07dae7e7df584ade524b",
+  "p105_recording_module": "7cf3732a4c7aab54e34d560921943b51d1bd412ba11eaf4d32e6b8e14a55439e",
+  "unmodified_physics_runner": "e373205fa4b7f93295333e886be3b5ed4e6b25eaaa81a16b913ad54c42a8664c"
+}

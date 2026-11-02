@@ -1,0 +1,678 @@
+{
+  "time_jst": "2026-10-31T17:17:21.304883+09:00",
+  "stage": 105,
+  "purpose": "P104_SAME_PHYSICS_WITH_TWO_EXTRA_REAL_BULLET_OBSERVER_CAMERAS",
+  "p104_parent_recorded_10of10": true,
+  "rerun_physics_10of10": true,
+  "reproduction_claim": true,
+  "p104_grade_run": {
+    "cases": {
+      "01_apple_A_A3": {
+        "object": "apple",
+        "ai_class": "A",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "A3",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "WORKER_A_FIRST_SCRIPTED_SUPPLY",
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "A",
+          "destination": "A3",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "02_apple_B_B3": {
+        "object": "apple",
+        "ai_class": "B",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "B3",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "B",
+          "destination": "B3",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "03_apple_C_C1": {
+        "object": "apple",
+        "ai_class": "C",
+        "decision_reason": "STAGE90_MULTI_FRAME_SEVERE_WOUND_FROM_REAL_CAMERAS",
+        "destination": "C1",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": "LINEAR",
+        "wound_proof": [
+          {
+            "kind": "PERSISTENT_LARGE_SEVERE_WOUND",
+            "camera": "finger_2",
+            "frames": [
+              "dense_tick068",
+              "dense_tick072"
+            ],
+            "bbox": [
+              [
+                140,
+                70,
+                161,
+                76
+              ],
+              [
+                141,
+                67,
+                162,
+                73
+              ]
+            ]
+          }
+        ],
+        "stop_resume_events": [],
+        "case_events": [
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "C",
+          "destination": "C1",
+          "wound_evidence": "LINEAR"
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "04_apple_D_D1": {
+        "object": "apple",
+        "ai_class": "D",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "D1",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "D",
+          "destination": "D1",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "05_apple_B_B2": {
+        "object": "apple",
+        "ai_class": "B",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "B2",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "WORKER_C_D1_CONCURRENT_START",
+          "WORKER_C_D1_PICKUP_SCRIPTED",
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN",
+          "WORKER_C_SCRIPTED_PACK_D"
+        ],
+        "expected": {
+          "classification": "B",
+          "destination": "B2",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "06_apple_A_A2": {
+        "object": "apple",
+        "ai_class": "A",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "A2",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "A",
+          "destination": "A2",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "07_apple_A_A1": {
+        "object": "apple",
+        "ai_class": "A",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "A1",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "WORKER_A_EARLY_SUPPLY_START",
+          "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+          "WORKER_A_EARLY_HAND_WITHDRAWN"
+        ],
+        "expected": {
+          "classification": "A",
+          "destination": "A1",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "08_apple_A_A2": {
+        "object": "apple",
+        "ai_class": "A",
+        "decision_reason": "COARSE_SUPERVISED_KNOWN_PHOTO_MULTICAMERA",
+        "destination": "A2",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [
+          "THREE_FULL_STOP",
+          "WORKER_C_TRANSFER_COMPLETED",
+          "WORKER_C_REMOVED",
+          "RESUME"
+        ],
+        "case_events": [
+          "AI_DECISION",
+          "THREE_FULL_STOP",
+          "HUMAN_ZONE_EVENT",
+          "WORKER_C_SELECTS_MIDDLE_A2",
+          "WORKER_C_TRANSFER_COMPLETED",
+          "STAGE48_A2_CLEARED_MIDDLE_GAP",
+          "STAGE46_REAL_A_APPLE_INSIDE_CRATE",
+          "WORKER_C_REMOVED",
+          "HUMAN_ZONE_EVENT",
+          "OPERATOR_RESET_ACK",
+          "RESUME"
+        ],
+        "expected": {
+          "classification": "A",
+          "destination": "A2",
+          "wound_evidence": null
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      },
+      "09_tennis_tennis_reject": {
+        "object": "tennis",
+        "ai_class": null,
+        "decision_reason": null,
+        "destination": null,
+        "pass": true,
+        "physical_status": "STAGE32_REJECTED_BEFORE_DESCENT",
+        "success_physical_and_ai": false,
+        "wound_evidence": null,
+        "wound_proof": [],
+        "stop_resume_events": [],
+        "case_events": [
+          "STAGE70_NONAPPLE_REJECTED_BEFORE_GRIP"
+        ],
+        "expected": {
+          "classification": null,
+          "destination": null,
+          "wound_evidence": null,
+          "nonapple_reject": true
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true,
+          "nonapple_rejected": true
+        }
+      },
+      "10_apple_C_C2": {
+        "object": "apple",
+        "ai_class": "C",
+        "decision_reason": "STAGE90_MULTI_FRAME_SEVERE_WOUND_FROM_REAL_CAMERAS",
+        "destination": "C2",
+        "pass": true,
+        "physical_status": null,
+        "success_physical_and_ai": true,
+        "wound_evidence": "ROUND",
+        "wound_proof": [
+          {
+            "kind": "PERSISTENT_ROUND_BROWN_DARK_LESION",
+            "camera": "finger_2",
+            "frames": [
+              "dense_tick008",
+              "dense_tick020"
+            ],
+            "bbox": [
+              [
+                75,
+                116,
+                135,
+                150
+              ],
+              [
+                81,
+                104,
+                139,
+                142
+              ]
+            ]
+          }
+        ],
+        "stop_resume_events": [
+          "VIRTUAL_HAND_HOLD_MEASURE",
+          "VIRTUAL_HAND_CLEARED_RESUME"
+        ],
+        "case_events": [
+          "WORKER_C_REACHES_INTO_C2_NEST",
+          "AI_DECISION",
+          "GO_TO_NEST",
+          "VIRTUAL_HAND_PROXIMITY_STOP",
+          "VIRTUAL_HAND_HOLD_MEASURE",
+          "VIRTUAL_HAND_CLEARED_RESUME"
+        ],
+        "expected": {
+          "classification": "C",
+          "destination": "C2",
+          "wound_evidence": "ROUND"
+        },
+        "checks": {
+          "pass": true,
+          "class": true,
+          "destination": true,
+          "wound_evidence": true
+        }
+      }
+    },
+    "runner": {
+      "runner_rc": 0,
+      "run_status_all_pass": true,
+      "summary_all_pass": true,
+      "n_episodes": 10,
+      "nonapple_safe_rejections": 1
+    },
+    "stop_resume": {
+      "THREE_FULL_STOP": true,
+      "RESUME": true
+    },
+    "scenario_coverage": {
+      "A_to_C_workcell_scripted": true,
+      "tennis_reject": true,
+      "A_three_full_stop": true,
+      "worker_C_clear_and_resume": true,
+      "B3_to_B2_without_B1": true,
+      "B1_remains_empty_no_scripted_spawn": true,
+      "stage48_A2_middle_gap_physically_sensed": true,
+      "stage48_A2_chosen_by_unmodified_robot_priority": true,
+      "stage48_A2_final_occupancy": true,
+      "stage48_stop_worker_remove_resume_chronological": true,
+      "B2_pre_decision_load_sensor": true,
+      "virtual_hand_approach_stop_resume": true,
+      "stage46_C_hand_at_C2_before_claw_approach": true,
+      "stage46_C_hand_retracted_before_resume": true,
+      "stage46_A_crate_contains_original_Bullet_fruit": true,
+      "stage48_C_hand_at_idle_after_A2_transfer": true,
+      "virtual_hand_bullet_x_hold_below_15mm": true,
+      "worker_C_D1_B2_overlap_in_one_physics_clock": true,
+      "worker_C_D1_visual_gap_at_least_160mm": true,
+      "worker_A_early_parallel_input_physical": true,
+      "same_Bullet_input_body_reused": true,
+      "worker_C_torso_never_jumps": true,
+      "worker_C_stays_at_A_after_A2_transfer": true,
+      "stage50_nine_landing_records": true,
+      "stage50_impact_release_guards_preserved": true,
+      "stage49_scan_command_length_physics_checked": true,
+      "stage49_preflight_minimum_pose_check": true,
+      "stage51_all_10_trials_success": true,
+      "stage51_3_camera_capture_points_after_settle": true,
+      "stage62_actual_9_apple_grades_recorded": true,
+      "stage62_all_9_5camera_scans": true,
+      "stage67_nine_descending_finger_scans_and_raw_grade_palm": true,
+      "stage68_all_nine_measured_monotone_fingers": true
+    },
+    "inference_inputs_identical_to_p103_validated": {
+      "matched_cases": [
+        "01_apple_A_A3",
+        "02_apple_B_B3",
+        "03_apple_C_C1",
+        "04_apple_D_D1",
+        "05_apple_B_B2",
+        "06_apple_A_A2",
+        "07_apple_A_A1",
+        "08_apple_A_A2",
+        "10_apple_C_C2"
+      ],
+      "all_9_identical": true
+    },
+    "failures": [],
+    "all_10_verified": true
+  },
+  "python_changed_during_run": false,
+  "ai_camera_capture_complete": true,
+  "extra_cameras": {
+    "camera_only": true,
+    "parent_p104": true,
+    "real_pybullet_getCameraImage": true,
+    "slider_link_tracked": "palm_camera_fixed",
+    "follow_camera_position_uses_live_palm_x": true,
+    "total_original_frames": 656,
+    "camera_frame_counts": {
+      "grip": 656,
+      "follow": 656
+    },
+    "palm_x_min_max_m": [
+      -0.8100057710022449,
+      0.5800000006120823
+    ],
+    "palm_x_motion_range_m": 1.3900057716143273,
+    "no_tracking_frames": 0,
+    "errors": [],
+    "sampled_palm_xyz": [
+      {
+        "frame": 1,
+        "x": 9.3650704683313e-10,
+        "y": 8.452440263797948e-10,
+        "z": 1.3690000006440075,
+        "tracking": true
+      },
+      {
+        "frame": 27,
+        "x": -0.21537493796587182,
+        "y": -2.7696239434983135e-09,
+        "z": 1.4249999840254153,
+        "tracking": true
+      },
+      {
+        "frame": 53,
+        "x": -0.5799999993899445,
+        "y": 2.692403905055515e-10,
+        "z": 1.335041813985799,
+        "tracking": true
+      },
+      {
+        "frame": 79,
+        "x": -1.448589404038734e-09,
+        "y": 2.608867299367751e-08,
+        "z": 1.325000008350821,
+        "tracking": true
+      },
+      {
+        "frame": 105,
+        "x": -0.19000069716775556,
+        "y": -2.188007330406311e-06,
+        "z": 1.3133845962456763,
+        "tracking": true
+      },
+      {
+        "frame": 131,
+        "x": 7.324432523255775e-10,
+        "y": 6.610889063993009e-10,
+        "z": 1.3282131966960222,
+        "tracking": true
+      },
+      {
+        "frame": 157,
+        "x": 0.1899999851967336,
+        "y": 5.3133955315013825e-09,
+        "z": 1.324625118555129,
+        "tracking": true
+      },
+      {
+        "frame": 183,
+        "x": 9.758536485562506e-10,
+        "y": 8.807580462734982e-10,
+        "z": 1.3608045820417007,
+        "tracking": true
+      },
+      {
+        "frame": 209,
+        "x": 0.5799931191255647,
+        "y": -1.570705128199788e-08,
+        "z": 1.4249999954132044,
+        "tracking": true
+      },
+      {
+        "frame": 235,
+        "x": 0.449754653512853,
+        "y": 8.805139021838624e-10,
+        "z": 1.424999999666839,
+        "tracking": true
+      },
+      {
+        "frame": 261,
+        "x": -2.5613577333764445e-09,
+        "y": 9.70139479686648e-09,
+        "z": 1.399957410284776,
+        "tracking": true
+      },
+      {
+        "frame": 287,
+        "x": -0.3049999992864599,
+        "y": 6.722366920461074e-10,
+        "z": 1.314208486526786,
+        "tracking": true
+      },
+      {
+        "frame": 313,
+        "x": -2.9463310268128468e-08,
+        "y": -1.4189654288441111e-08,
+        "z": 1.325000202013742,
+        "tracking": true
+      },
+      {
+        "frame": 339,
+        "x": -0.6949999877421063,
+        "y": 1.069349343912808e-08,
+        "z": 1.3300436748914062,
+        "tracking": true
+      },
+      {
+        "frame": 365,
+        "x": -0.06221205695526583,
+        "y": 8.12560025804033e-10,
+        "z": 1.4250000006191048,
+        "tracking": true
+      },
+      {
+        "frame": 391,
+        "x": -0.07959200681628509,
+        "y": 6.92086508424666e-08,
+        "z": 1.4249999297755485,
+        "tracking": true
+      },
+      {
+        "frame": 417,
+        "x": -0.80999993446743,
+        "y": 1.9757723999563664e-07,
+        "z": 1.3137913248801258,
+        "tracking": true
+      },
+      {
+        "frame": 443,
+        "x": 1.063128934112854e-09,
+        "y": 9.59526805720607e-10,
+        "z": 1.365883488412669,
+        "tracking": true
+      },
+      {
+        "frame": 469,
+        "x": -2.327922104790801e-08,
+        "y": 6.966516051673382e-08,
+        "z": 1.4249999904268542,
+        "tracking": true
+      },
+      {
+        "frame": 495,
+        "x": -2.2934972489803655e-08,
+        "y": 7.954656692181818e-08,
+        "z": 1.4249999805532982,
+        "tracking": true
+      },
+      {
+        "frame": 521,
+        "x": -0.6949999886041952,
+        "y": 2.599811082839684e-08,
+        "z": 1.3370332804883043,
+        "tracking": true
+      },
+      {
+        "frame": 547,
+        "x": -0.14346206163679642,
+        "y": 8.125600258040326e-10,
+        "z": 1.4250000006191048,
+        "tracking": true
+      },
+      {
+        "frame": 573,
+        "x": 7.784570131502828e-10,
+        "y": 7.026005038528885e-10,
+        "z": 1.3549586599158856,
+        "tracking": true
+      },
+      {
+        "frame": 599,
+        "x": 0.17352487270440115,
+        "y": -2.004004918779026e-08,
+        "z": 1.4249999529926154,
+        "tracking": true
+      },
+      {
+        "frame": 625,
+        "x": 0.3049327655144318,
+        "y": 8.000786561638147e-10,
+        "z": 1.4249999996987361,
+        "tracking": true
+      },
+      {
+        "frame": 651,
+        "x": 0.3050000010677141,
+        "y": 9.633236126801306e-10,
+        "z": 1.4220249816367303,
+        "tracking": true
+      }
+    ]
+  },
+  "physics_exit_code": 0,
+  "source_hashes": {
+    "p92c": "c5927d8122b32a037544a3e3eb0da35f647a6231b3f0cb4eefba2f62cf819928",
+    "p104_script": "3d85d266c31b3e5f465f15c43b0e42048e9dcac6f563ca2ea5891e4f565a5e73",
+    "stage104_source": {
+      "stage84": "490bca16f9966bec42b817eb8cf8fc3a6bb1f0e06540f963ba9f38b56e2630e4",
+      "stage90": "dd5c008cf7b3c4d56552e4646b2b5a3bb011926b186b2a68f078f0a1def5bda0",
+      "runner": "e373205fa4b7f93295333e886be3b5ed4e6b25eaaa81a16b913ad54c42a8664c",
+      "10_C1_uv.png": "22ab1a6c93555164e74f8b9694bc7792f2c08ce465c0e51d026460503f60f2fc",
+      "05_C_uv.png": "b8356471e8a00259d8bdd4aaddc8d76b07f4bdc2d52a0914d9d664aa8d52d729"
+    },
+    "original_recording_module": "316e6dcb7e9fc866a4d5653b3b398af1a3fd231758dc07dae7e7df584ade524b",
+    "p105_recording_module": "7cf3732a4c7aab54e34d560921943b51d1bd412ba11eaf4d32e6b8e14a55439e",
+    "unmodified_physics_runner": "e373205fa4b7f93295333e886be3b5ed4e6b25eaaa81a16b913ad54c42a8664c"
+  },
+  "source_changes": [
+    "stage84 P99 restoration",
+    "stage90 P104 known candidate",
+    "C1 UV binding",
+    "stage62_workcell_video presentation-only 2-camera appended"
+  ],
+  "original_success_files_unchanged": true,
+  "videos": {
+    "stage69_one_world_continuous_1x.mp4": {
+      "size_bytes": 2752112,
+      "sha256": "07e9fe7fe8654070a216b0898b8d9a6e2a7209c8541ed46daee4a7d67842d5ed"
+    },
+    "p105_grip_live.mp4": {
+      "size_bytes": 6048832,
+      "sha256": "b5dee6f7006615e20b8aa70a07e88479dbe82af9f047ca717d56c9585840ac49"
+    },
+    "p105_slider_follow_live.mp4": {
+      "size_bytes": 2296397,
+      "sha256": "fc40af55cb8fedbbfa2fa084e82fb1aa106e476fa55752276ae9cafa1b519183"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "case": "09_tennis_tennis_reject",
+  "object": "tennis",
+  "truth_label": "tennis",
+  "expected_destination": null,
+  "stage62_five_camera": {
+    "case": 9,
+    "name": "09_tennis_tennis_reject",
+    "grade": null,
+    "reference_label": "tennis",
+    "finger_frames": 0,
+    "under_camera_frames": 0,
+    "descending": false,
+    "destination": null,
+    "grade_palm_raw_captured": false,
+    "physical_success": false,
+    "stage68_finger_monotone_observed": false
+  },
+  "stage44_prepositioned_body_reused": false,
+  "stage44_early_supplied_during_this_case": false,
+  "physical_status": "STAGE32_REJECTED_BEFORE_DESCENT",
+  "success_physical_and_ai": false,
+  "stage32": {
+    "allow_descent": false,
+    "load": {
+      "triggered": true,
+      "mass_kg": 0.057,
+      "reason": "LOAD_TRIGGER_CAPTURE"
+    },
+    "upper_image_captured": true,
+    "object": {
+      "accepted": false,
+      "predicted_object": "tennis",
+      "status": "NOT_APPLE",
+      "confidence": 1.0,
+      "scores": {
+        "apple": 0.0,
+        "baseball": 0.0,
+        "red_ball": 0.0,
+        "tennis": 1.0
+      },
+      "confidence_floor": 0.76,
+      "infer_wall_ms": 28.821547999996255,
+      "model_scope": "shared RF; synthetic negatives + real-photo source/camera calibration; non-independent development model",
+      "fov_normalization": {
+        "method": "RAW_RGB_NO_CROP",
+        "ratio": 1.0,
+        "input_size_px": [
+          144,
+          144
+        ],
+        "output_size_px": [
+          144,
+          144
+        ],
+        "source": "ACTUAL_PYBULLET_CAMERA_TWICE: HIGH_GATING_AND_LOW_GRADING",
+        "warning": "EXACT_HIGH_CAMERA_TRAIN_FRAMES_NOT_INDEPENDENT",
+        "raw_sha256": "18872e450f782708b688a3f3fcc4297c5c27d2cc0d150c1855faeb963cb1216f",
+        "normalized_sha256": "18872e450f782708b688a3f3fcc4297c5c27d2cc0d150c1855faeb963cb1216f",
+        "source_file": "ai_camera/09_tennis_tennis_reject_stage62_palm.png",
+        "normalized_file": "ai_camera/09_tennis_tennis_reject_stage62_palm_gate_roi.png",
+        "shared_for_gate_and_grade": false,
+        "grade_palm_frame_sha256": null
+      }
+    },
+    "load_samples_kg": [
+      0.057,
+      0.057,
+      0.057
+    ]
+  },
+  "stage64_approach": null,
+  "classification": {
+    "status": "NOT_STARTED",
+    "class": null
+  },
+  "destination": null,
+  "stage_time_s": 0.19583333333333333,
+  "stage37_occupancy": {
+    "A1": true,
+    "A2": true,
+    "A3": true,
+    "B1": false,
+    "B2": true,
+    "B3": true,
+    "C1": true,
+    "C2": false,
+    "C3": false,
+    "D1": false,
+    "D2": false,
+    "D3": false
+  },
+  "case_events": [
+    {
+      "event": "STAGE70_NONAPPLE_REJECTED_BEFORE_GRIP",
+      "case": "09_tennis_tennis_reject",
+      "actual_model_prediction": "tennis",
+      "object_species_correct": true,
+      "no_descent": true,
+      "no_gripper_close": true,
+      "human_reference_object": "tennis",
+      "physical_input_body_removed_by_script": true
+    }
+  ],
+  "stage70_nonapple_safety_audit": {
+    "pass": true,
+    "checks": {
+      "load_triggered": true,
+      "palm_image_captured": true,
+      "gate_rejected": true,
+      "object_not_accepted": true,
+      "nonapple_predicted": true,
+      "explicit_nonapple_status": true,
+      "no_physical_descent": true,
+      "fingers_never_closed": true,
+      "nothing_transported": true,
+      "no_grading": true,
+      "stopped_before_descent": true
+    },
+    "predicted_object": "tennis",
+    "confidence": 1.0,
+    "apple_score": 0.0,
+    "species_prediction_not_equated_with_nonapple_rejection": true,
+    "classification_reference_not_passed_to_model": true
+  },
+  "pass": true,
+  "stage69_physical_guarded_continuation": false,
+  "stage69_disagreement_remains_failure": false
+}

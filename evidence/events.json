@@ -1,0 +1,614 @@
+[
+  {
+    "event": "WORKER_A_FIRST_SCRIPTED_SUPPLY",
+    "real_hand_physics": false,
+    "3x30_visual_baskets": true
+  },
+  {
+    "case": "01_apple_A_A3",
+    "sequence": 1,
+    "event": "AI_DECISION",
+    "grade": "A",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 0,
+    "capacity": 3,
+    "destination": "A3",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "01_apple_A_A3",
+    "sequence": 2,
+    "event": "GO_TO_NEST",
+    "grade": "A",
+    "destination": "A3"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "01_apple_A_A3",
+    "next_case_index": 2,
+    "horizontal_clearance_m": 0.14662495815407986,
+    "robot_joint_z_m": 0.27499998739198367,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "01_apple_A_A3",
+    "target_case": 2,
+    "next_label_input": "B",
+    "new_bullet_body_id": 54,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "01_apple_A_A3",
+    "target_case": 2
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "02_apple_B_B3",
+    "bullet_body_id": 54,
+    "prior_case": "01_apple_A_A3",
+    "physical_body_reused": true
+  },
+  {
+    "case": "02_apple_B_B3",
+    "sequence": 3,
+    "event": "AI_DECISION",
+    "grade": "B",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 0,
+    "capacity": 3,
+    "destination": "B3",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "02_apple_B_B3",
+    "sequence": 4,
+    "event": "GO_TO_NEST",
+    "grade": "B",
+    "destination": "B3"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "02_apple_B_B3",
+    "next_case_index": 3,
+    "horizontal_clearance_m": 0.14765585128119446,
+    "robot_joint_z_m": 0.2749999906957239,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "02_apple_B_B3",
+    "target_case": 3,
+    "next_label_input": "C",
+    "new_bullet_body_id": 55,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "02_apple_B_B3",
+    "target_case": 3
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "03_apple_C_C1",
+    "bullet_body_id": 55,
+    "prior_case": "02_apple_B_B3",
+    "physical_body_reused": true
+  },
+  {
+    "case": "03_apple_C_C1",
+    "sequence": 5,
+    "event": "AI_DECISION",
+    "grade": "C",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 0,
+    "capacity": 3,
+    "destination": "C1",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "03_apple_C_C1",
+    "sequence": 6,
+    "event": "GO_TO_NEST",
+    "grade": "C",
+    "destination": "C1"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "03_apple_C_C1",
+    "next_case_index": 4,
+    "horizontal_clearance_m": 0.14765584136934656,
+    "robot_joint_z_m": 0.27500007879808064,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "03_apple_C_C1",
+    "target_case": 4,
+    "next_label_input": "D",
+    "new_bullet_body_id": 56,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "03_apple_C_C1",
+    "target_case": 4
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "04_apple_D_D1",
+    "bullet_body_id": 56,
+    "prior_case": "03_apple_C_C1",
+    "physical_body_reused": true
+  },
+  {
+    "case": "04_apple_D_D1",
+    "sequence": 7,
+    "event": "AI_DECISION",
+    "grade": "D",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 0,
+    "capacity": 3,
+    "destination": "D1",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "04_apple_D_D1",
+    "sequence": 8,
+    "event": "GO_TO_NEST",
+    "grade": "D",
+    "destination": "D1"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "04_apple_D_D1",
+    "next_case_index": 5,
+    "horizontal_clearance_m": 0.14662494492763528,
+    "robot_joint_z_m": 0.2750000033055362,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "04_apple_D_D1",
+    "target_case": 5,
+    "next_label_input": "B",
+    "new_bullet_body_id": 57,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "04_apple_D_D1",
+    "target_case": 5
+  },
+  {
+    "event": "WORKER_C_D1_SCHEDULED_FOR_PARALLEL_B2",
+    "after_case": "04_apple_D_D1",
+    "body_id": 56,
+    "no_worker_motion_performed_serially": true
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "05_apple_B_B2",
+    "bullet_body_id": 57,
+    "prior_case": "04_apple_D_D1",
+    "physical_body_reused": true
+  },
+  {
+    "event": "STAGE47_B2_PRE_DECISION_SENSOR",
+    "case": "05_apple_B_B2",
+    "occupied": {
+      "B1": false,
+      "B2": false,
+      "B3": true
+    },
+    "claim": "B3 occupied from case 2; B2 and B1 empty",
+    "no_preexisting_B1_apple_inserted": true
+  },
+  {
+    "event": "WORKER_C_D1_CONCURRENT_START",
+    "case": "05_apple_B_B2",
+    "robot_phase": "gravity_lift",
+    "scripted_worker": true,
+    "robot_not_commanded_to_hold": true
+  },
+  {
+    "event": "WORKER_C_D1_PICKUP_SCRIPTED",
+    "case": "05_apple_B_B2",
+    "body_id": 56,
+    "note": "scripted proxy hand, not physical human grasp"
+  },
+  {
+    "case": "05_apple_B_B2",
+    "sequence": 9,
+    "event": "AI_DECISION",
+    "grade": "B",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 1,
+    "capacity": 3,
+    "destination": "B2",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "05_apple_B_B2",
+    "sequence": 10,
+    "event": "GO_TO_NEST",
+    "grade": "B",
+    "destination": "B2"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "05_apple_B_B2",
+    "next_case_index": 6,
+    "horizontal_clearance_m": 0.14852518458156225,
+    "robot_joint_z_m": 0.27499998143525994,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "05_apple_B_B2",
+    "target_case": 6,
+    "next_label_input": "A",
+    "new_bullet_body_id": 58,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "05_apple_B_B2",
+    "target_case": 6
+  },
+  {
+    "event": "WORKER_C_SCRIPTED_PACK_D",
+    "case": "05_apple_B_B2",
+    "sensor_D1_now_empty": true,
+    "robot_moved_while_C_was_packing": true,
+    "robot_joint_displacement_range_m": 0.305,
+    "min_palm_hand_distance_m": 0.58019,
+    "simultaneous_physics_ticks": 177,
+    "simultaneous_simulated_seconds": 0.7375,
+    "true_human_physics": false,
+    "B_robot_interlock_bypassed": false
+  },
+  {
+    "event": "B2_FREE_CHOICE_CONFIRMATION",
+    "B1_occupied": false,
+    "B3_occupied": true,
+    "B2_occupied_after": true,
+    "logic": "B3 filled in case 2; nearest free B nest is B2",
+    "stage47_no_B1_preload": true
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "06_apple_A_A2",
+    "bullet_body_id": 58,
+    "prior_case": "05_apple_B_B2",
+    "physical_body_reused": true
+  },
+  {
+    "case": "06_apple_A_A2",
+    "sequence": 11,
+    "event": "AI_DECISION",
+    "grade": "A",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 1,
+    "capacity": 3,
+    "destination": "A2",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "06_apple_A_A2",
+    "sequence": 12,
+    "event": "GO_TO_NEST",
+    "grade": "A",
+    "destination": "A2"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "06_apple_A_A2",
+    "next_case_index": 7,
+    "horizontal_clearance_m": 0.14748687925158407,
+    "robot_joint_z_m": 0.27499994957930063,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "06_apple_A_A2",
+    "target_case": 7,
+    "next_label_input": "A",
+    "new_bullet_body_id": 59,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "06_apple_A_A2",
+    "target_case": 7
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "07_apple_A_A1",
+    "bullet_body_id": 59,
+    "prior_case": "06_apple_A_A2",
+    "physical_body_reused": true
+  },
+  {
+    "case": "07_apple_A_A1",
+    "sequence": 13,
+    "event": "AI_DECISION",
+    "grade": "A",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 2,
+    "capacity": 3,
+    "destination": "A1",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "07_apple_A_A1",
+    "sequence": 14,
+    "event": "GO_TO_NEST",
+    "grade": "A",
+    "destination": "A1"
+  },
+  {
+    "event": "WORKER_A_EARLY_SUPPLY_START",
+    "from_case": "07_apple_A_A1",
+    "next_case_index": 8,
+    "horizontal_clearance_m": 0.14834207480524197,
+    "robot_joint_z_m": 0.27499998352048,
+    "prior_apple_off_plate": true,
+    "worker_model": "scripted, collision-free"
+  },
+  {
+    "event": "WORKER_A_NEXT_REAL_APPLE_ON_SCALE",
+    "from_case": "07_apple_A_A1",
+    "target_case": 8,
+    "next_label_input": "A",
+    "new_bullet_body_id": 60,
+    "while_robot_transports_previous": true,
+    "actual_physical_dynamic_body": true
+  },
+  {
+    "event": "WORKER_A_EARLY_HAND_WITHDRAWN",
+    "from_case": "07_apple_A_A1",
+    "target_case": 8
+  },
+  {
+    "event": "WORKER_A_PREPOSITIONED_BODY_REUSED",
+    "case": "08_apple_A_A2",
+    "bullet_body_id": 60,
+    "prior_case": "07_apple_A_A1",
+    "physical_body_reused": true
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 15,
+    "event": "AI_DECISION",
+    "grade": "A",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 3,
+    "capacity": 3,
+    "destination": null,
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 16,
+    "event": "THREE_FULL_STOP",
+    "grade": "A",
+    "occupied_slots": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "robot_move_permitted": false,
+    "apple_held": true
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 17,
+    "event": "HUMAN_ZONE_EVENT",
+    "grade": "A",
+    "zone_occupied": true,
+    "safety_note": "virtual operator event; not a safety-rated detector"
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 18,
+    "event": "WORKER_C_SELECTS_MIDDLE_A2",
+    "grade": "A",
+    "nest": "A2",
+    "operator_choice": true,
+    "robot_route_overridden": false
+  },
+  {
+    "event": "WORKER_C_TRANSFER_COMPLETED",
+    "case": "08_apple_A_A2",
+    "nest": "A2",
+    "crate": "A",
+    "worker_C_station_x_m": -0.7177902621722847,
+    "worker_C_hand_after_transfer": [
+      -0.7177902621722847,
+      -0.62,
+      1.27
+    ],
+    "scripted_visual_worker": true,
+    "hand_after_C_transfer_is_idle": true
+  },
+  {
+    "event": "STAGE48_A2_CLEARED_MIDDLE_GAP",
+    "case": "08_apple_A_A2",
+    "worker_choice": "A2",
+    "sensor_before": {
+      "A1": true,
+      "A2": true,
+      "A3": true
+    },
+    "sensor_after": {
+      "A1": true,
+      "A2": false,
+      "A3": true
+    },
+    "A1_and_A3_still_occupied": true,
+    "robot_A2_route_not_forced": true
+  },
+  {
+    "event": "STAGE46_REAL_A_APPLE_INSIDE_CRATE",
+    "case": "08_apple_A_A2",
+    "body_id": 58,
+    "physical_body_xyz_m": [
+      -0.6950000000000001,
+      0.0,
+      0.747986512732974
+    ],
+    "crate_A_centre_x_m": -0.6950000000000001,
+    "visual_evidence": "same-tick live PyBullet overhead camera",
+    "not_an_added_visual_apple": true
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 19,
+    "event": "WORKER_C_REMOVED",
+    "grade": "A",
+    "nest": "A2",
+    "operation": "abstract removal of previously placed physical apple body"
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 20,
+    "event": "HUMAN_ZONE_EVENT",
+    "grade": "A",
+    "zone_occupied": false
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 21,
+    "event": "OPERATOR_RESET_ACK",
+    "grade": "A",
+    "operator_acknowledgement": "scripted explicit reset event"
+  },
+  {
+    "case": "08_apple_A_A2",
+    "sequence": 22,
+    "event": "RESUME",
+    "grade": "A",
+    "destination": "A2",
+    "occupied_before": 3,
+    "occupied_after": 2,
+    "motion_permitted": true
+  },
+  {
+    "event": "STAGE70_NONAPPLE_REJECTED_BEFORE_GRIP",
+    "case": "09_tennis_tennis_reject",
+    "actual_model_prediction": "tennis",
+    "object_species_correct": true,
+    "no_descent": true,
+    "no_gripper_close": true,
+    "human_reference_object": "tennis",
+    "physical_input_body_removed_by_script": true
+  },
+  {
+    "event": "WORKER_C_WALK_TO_NEXT_STATION",
+    "case": "09_tennis_tennis_reject",
+    "station_x_m": 0.41999999999999993,
+    "scripted_non_collision": true
+  },
+  {
+    "event": "WORKER_C_REACHES_INTO_C2_NEST",
+    "case": "10_apple_C_C2",
+    "nest": "C2",
+    "hand_target_xyz_m": [
+      0.305,
+      -0.015,
+      1.2799999999999998
+    ],
+    "nest_floor_top_z_m": 1.2049999999999998,
+    "scripted_hand_not_sensor": true
+  },
+  {
+    "case": "10_apple_C_C2",
+    "sequence": 23,
+    "event": "AI_DECISION",
+    "grade": "C",
+    "confidence": null,
+    "scores": {},
+    "measured_mass_kg": null,
+    "occupied": 1,
+    "capacity": 3,
+    "destination": "C2",
+    "source": "real camera+scale features; synthetic training data"
+  },
+  {
+    "case": "10_apple_C_C2",
+    "sequence": 24,
+    "event": "GO_TO_NEST",
+    "grade": "C",
+    "destination": "C2"
+  },
+  {
+    "event": "VIRTUAL_HAND_PROXIMITY_STOP",
+    "case": "10_apple_C_C2",
+    "nest": "C2",
+    "hand_on_nest_before_approach": true,
+    "robot_approached_nest_x_m": 0.17352503297957342,
+    "hand_xyz_m": [
+      0.305,
+      -0.015,
+      1.2799999999999998
+    ],
+    "palm_xyz_m": [
+      0.17352503538131714,
+      3.414283256120143e-08,
+      1.4249999523162842
+    ],
+    "xy_distance_m": 0.13232787818812047,
+    "distance_m": 0.19630500125441225,
+    "safety_rated_sensor": false,
+    "collision_enabled_for_hand": false
+  },
+  {
+    "event": "VIRTUAL_HAND_HOLD_MEASURE",
+    "case": "10_apple_C_C2",
+    "nest": "C2",
+    "x_drift_m": -4.908616013654665e-08,
+    "held_ticks": 240
+  },
+  {
+    "event": "VIRTUAL_HAND_CLEARED_RESUME",
+    "case": "10_apple_C_C2",
+    "nest": "C2",
+    "hand_withdrawn_from_cushion": true,
+    "withdrawn_hand_xyz_m": [
+      0.41999999999999993,
+      -0.62,
+      1.27
+    ],
+    "operator_reset_event": true
+  }
+]

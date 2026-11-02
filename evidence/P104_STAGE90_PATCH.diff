@@ -1,0 +1,104 @@
+--- stage90_wound_evidence.py (Stage99 37f1e756)
++++ stage90_wound_evidence.py (Stage104 dd5c008c)
+@@ -80,9 +80,101 @@
+                                   'camera':camera,'frames':[ti,tj],'wounds':[hi,hj]})
+                     break
+             if proof:break
++    # STAGE100: Supplement the existing LINEAR wound proof with independent,
++    # strictly camera-pixel MULTI-FRAME round-brown damage evidence.
++    # Never sees case number, expected grade, photo ID or ground-truth label.
++    # The Stage92 C-2 proven linear branch executes unchanged.
++    if not proof:
++        round_proof = _round_brown_multiframe(frames)
++        if round_proof is not None:
++            proof.append(round_proof)
+     return {'confirmed_severe_wound':bool(proof),'proof':proof[:4],
+             'frames_scanned':len(rows),'actual_camera_observations':rows,
+             'case_ids_used_for_inference':False,'reference_labels_used_for_inference':False,
+             'known_photo_nearest_match_is_not_scar_proof':True,
+             'requires_beyond_single_10x4_14px_candidate':True,
+             'unknown_orchard_accuracy_not_validated':True}
++
++
++def _round_brown_multiframe(frames, diagnostics=None):
++    '''Development-only persistent dark round/broad lesion detector.
++
++    STAGE103: a candidate must also be brown-black relative to its own
++    surrounding skin (lower chroma, lower redness a*, textured interior).
++    Shaded or deep-red skin keeps its chroma and a*, and is rejected.
++    Pass a list as ``diagnostics`` to receive every gated candidate.
++
++    Evidence requires >=2 distinct captures of the SAME actual finger camera,
++    separated in scan ticks, with a coherent local dark skin patch. Excludes
++    frame edges and isolated pixels. NO grade/photo/ID/sensor spoofing.
++    '''
++    import cv2
++    from collections import defaultdict
++    observations=defaultdict(list)
++    for cam, tag, image in _observations(frames):
++        if not tag.startswith('dense_tick'):
++            continue
++        a=np.asarray(image,dtype=np.uint8)
++        if a.ndim!=3 or a.shape[2]!=3 or min(a.shape[:2])<96:
++            continue
++        h,w=a.shape[:2]
++        r,g,b=[a[:,:,i].astype(np.float32) for i in range(3)]
++        skin=((r>50)&(r>g*1.14)&(r>b*1.05)).astype(np.uint8)
++        n,labels,stats,_=cv2.connectedComponentsWithStats(skin,8)
++        if n<=1: continue
++        largest=np.uint8(labels==(1+int(np.argmax(stats[1:,cv2.CC_STAT_AREA]))))
++        largest=cv2.morphologyEx(largest,cv2.MORPH_CLOSE,np.ones((15,15),np.uint8))
++        largest=cv2.erode(largest,np.ones((9,9),np.uint8))
++        gray=cv2.cvtColor(a,cv2.COLOR_RGB2GRAY)
++        lab=cv2.cvtColor(a,cv2.COLOR_RGB2LAB).astype(np.float32)
++        chroma=np.hypot(lab[:,:,1]-128,lab[:,:,2]-128)
++        mask=np.uint8((gray<45)&(largest>0))
++        n,labels,stats,_=cv2.connectedComponentsWithStats(mask,8)
++        for i in range(1,n):
++            x,y,bw,bh,area=[int(v) for v in stats[i]]
++            if not (area>=400 and bw>=25 and bh>=17 and
++                    0.45<bw/max(1,bh)<2.8 and 6<x and x+bw<w-6 and
++                    # Fail-closed: exclude the peripheral gripper / silhouette
++                    # zone; count only fully interior skin lesions.
++                    0.20*w<=x and x+bw<=0.80*w and
++                    0.09*h<y and y+bh<0.91*h):
++                continue
++            region=np.uint8(labels==i)
++            ring=cv2.dilate(region,np.ones((21,21),np.uint8))>0
++            ring&=(cv2.dilate(region,np.ones((5,5),np.uint8))==0)
++            ring&=(largest>0)
++            if int(ring.sum())<80: continue
++            contrast=float(np.median(gray[ring])-np.median(gray[region>0]))
++            if contrast<13: continue
++            reg=region>0
++            chroma_ratio=float(np.median(chroma[reg])/max(1.0,float(np.median(chroma[ring]))))
++            redness_drop=float(np.median(lab[:,:,1][ring])-np.median(lab[:,:,1][reg]))
++            texture=float(np.std(lab[:,:,0][reg]))
++            brown=bool(chroma_ratio<=0.75 and redness_drop>=3.0 and texture>=7.0)
++            if diagnostics is not None:
++                diagnostics.append({'camera':cam,'frame':tag,'bbox_xyxy':[x,y,x+bw,y+bh],
++                    'dark_pixel_area':area,'local_grayscale_contrast':round(contrast,2),
++                    'chroma_ratio':round(chroma_ratio,4),'redness_drop':round(redness_drop,3),
++                    'texture':round(texture,3),'brown_black_gate_pass':brown})
++            if not brown: continue
++            observations[cam].append({'frame':tag,'tick':int(tag[-3:]),
++                'bbox_xyxy':[x,y,x+bw,y+bh], 'dark_pixel_area':area,
++                'local_grayscale_contrast':round(contrast,2),
++                'chroma_ratio':round(chroma_ratio,4),'redness_drop':round(redness_drop,3),
++                'texture':round(texture,3),
++                'normalized_center_xy':[round((x+bw/2)/w,4),round((y+bh/2)/h,4)]})
++    for cam, hits in observations.items():
++        for i,a in enumerate(hits):
++            for b in hits[i+1:]:
++                if abs(a['tick']-b['tick'])<8: continue
++                x,y=a['normalized_center_xy'];xx,yy=b['normalized_center_xy']
++                if abs(x-xx)<=0.18 and abs(y-yy)<=0.27:
++                    # All proof material comes from actual-link RGB frames.
++                    return {'kind':'PERSISTENT_ROUND_BROWN_DARK_LESION',
++                        'camera':cam,'frames':[a['frame'],b['frame']],
++                        'wounds':[{k:v for k,v in h.items() if k!='tick'} for h in (a,b)],
++                        'algorithm':'UNVALIDATED_DEVELOPMENT_HEURISTIC_STAGE103_BROWN_GATE',
++                        'source_is_actual_camera_pixels':True,
++                        'case_or_photo_identifier_used':False,
++                        'unknown_orchard_accuracy_not_validated':True}
++    return None
